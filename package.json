@@ -1,0 +1,19 @@
+{
+  "name": "hacker-news",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings"
+  },
+  "dependencies": {
+    "@mozilla/readability": "^0.6.0",
+    "dompurify": "^3.3.0",
+    "hono": "^4.10.1",
+    "linkedom": "^0.18.12"
+  },
+  "devDependencies": {
+    "@types/node": "^24.9.1",
+    "wrangler": "^4.4.0"
+  }
+}
