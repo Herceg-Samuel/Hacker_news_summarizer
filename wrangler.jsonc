@@ -8,7 +8,7 @@
     {
       "binding": "articles",
       "id": "8ccb56c118c949e08e419da58edcdabd",
-      "remote": false
+      "remote": true
     }
   ],
   // "vars": {

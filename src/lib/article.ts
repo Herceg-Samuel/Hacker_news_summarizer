@@ -31,7 +31,7 @@ export async function getArticleAndSummary(options: {
   });
 
   [...document.getElementsByTagName("a")].forEach((link) => {
-    link.src = new URL(link.href, options.url).href;
+    link.href = new URL(link.href, options.url).href;
     link.setAttribute("target", "_blank");
     link.setAttribute("rel", "nofollow noopener");
   });
@@ -60,7 +60,8 @@ export async function getArticleAndSummary(options: {
     const { window } = parseHTML("");
     const purify = DOMPurify(window);
     const cleanArticle = purify.sanitize(article.content);
-    const cleanExcerpt = purify.sanitize(article.excerpt);
+    //used Nullish Coalescing Operator to handle undefined excerpt
+    const cleanExcerpt = purify.sanitize(article.excerpt ?? "");
 
     //console.log("Generating summary for article:", options.url);
     //const summary = summarize(options.ai, url, article.content);
