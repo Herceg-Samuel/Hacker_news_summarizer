@@ -87,6 +87,7 @@ app.notFound((c) => {
 
 app.onError((error, c) => {
   c.status(500);
+  console.log("Error:", error.message);
   return c.render(<h1> Error - {error.message}</h1>);
 });
 

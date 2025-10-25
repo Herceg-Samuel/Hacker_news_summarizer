@@ -61,7 +61,8 @@ export async function getArticleAndSummary(options: {
     const purify = DOMPurify(window);
     const cleanArticle = purify.sanitize(article.content);
     //used Nullish Coalescing Operator to handle undefined excerpt
-    const cleanExcerpt = purify.sanitize(article.excerpt ?? "");
+    //removed it
+    const cleanExcerpt = purify.sanitize(article?.excerpt);
 
     //console.log("Generating summary for article:", options.url);
     //const summary = summarize(options.ai, url, article.content);
@@ -72,7 +73,6 @@ export async function getArticleAndSummary(options: {
       //summary,
     };
   }
-
   await options.articlesKV.put(options.url, JSON.stringify(result));
 
   return result;
